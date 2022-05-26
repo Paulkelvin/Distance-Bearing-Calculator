@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distance calculator</title>
+  </head>
+  <body>
+    <header>
+      <h1>DISTANCE CALCULATOR</h1>
+      <p>calculate the distance between two points by coordinate method</p>
+    </header>
+    <section>
+      <div class="point-one">
+        <form action="">
+        <p>point(1)</p>
+        <input
+          type="number"
+          class="point-one-easting"
+          placeholder="Enter Your Easting(X1)"
+          required
+        />
+        <input
+          type="number"
+          class="point-one-northing"
+          placeholder="Enter Your Northing(Y1)"
+          required
+        />
+      </div>
+      <div class="point-two">
+        <p>point(2)</p>
+        <input
+          type="number"
+          class="point-two-easting"
+          placeholder="Enter Your Easting(X2)"
+          required
+        />
+        <input
+          type="number"
+          class="point-two-northing"
+          value=""
+          placeholder="Enter Your Northing(Y2)"
+          required
+        />
+      </div>
+      <div class="button-result">
+        <button class="calculate">calculate</button>
+        <textarea class="result" name="" id="" cols="28" rows="3"></textarea>
+      </div>
+    </form>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
