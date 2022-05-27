@@ -1,42 +1,61 @@
-'strict mode';
+'use strict';
 
-// const p1E = Number(document.querySelector('.point-one-easting').value);
-// const p1N = Number(document.querySelector('.point-one-northing').value);
-// const p2E = Number(document.querySelector('.point-two-easting').value);
-// const p2N = Number(document.querySelector('.point-two-northing').value);
-// console.log(p2N, typeof p2N);
-// const result = document.querySelector('.result');
+/*
+console.log(document.querySelector('.message').textContent);
+document.querySelector('.message').textContent = 'You guessed correctly!';
+document.querySelector('.number').textContent = 17;
+document.querySelector('.score').textContent = 12;
+document.querySelector('.guess').value = 30;
+console.log(document.querySelector('.guess').value);*/
+let theRandomNumber = Math.ceil(Math.random() * 40);
+let score = 40;
+let highScore = 0;
+let playing = true;
 
-const calculate = document.querySelector('.calculate');
+document.querySelector('.check').addEventListener('click', function () {
+  const guess = Number(document.querySelector('.guess').value);
 
-calculate.addEventListener('click', function (e) {
-  e.preventDefault();
-  const p1E = Number(document.querySelector('.point-one-easting').value);
-  const p1N = Number(document.querySelector('.point-one-northing').value);
-  const p2E = Number(document.querySelector('.point-two-easting').value);
-  const p2N = Number(document.querySelector('.point-two-northing').value);
-  const result = document.querySelector('.result');
-
-  const calculateDistance = function (X1, Y1, X2, Y2) {
-    const distance = Math.sqrt(
-      Math.pow(X2 - X1, 2) + Math.pow(Y2 - Y1, 2)
-    ).toFixed(4);
-
-    let bearing = Math.atan((X2 - X1) / (Y2 - Y1)) * (180 / Math.PI);
-
-    const degree = Math.floor(bearing);
-    const decimalMinute = (bearing - degree) * 60;
-    const minute = Math.floor(decimalMinute);
-    const seconds = ((decimalMinute - minute) * 60).toFixed(4);
-
-    bearing = `${degree}° ${minute}' ${seconds}"`;
-    if (p1E === 0 || p1N === 0 || p2E === 0 || p2N === 0) {
-      result.textContent = '';
-      alert('You must input all value');
+  // when no does'nt input a value
+  if (!guess) {
+    document.querySelector('.message').textContent = '⛔️ No number!';
+    // when player wins
+  } else if (guess === theRandomNumber) {
+    document.querySelector('.number').textContent = theRandomNumber;
+    document.querySelector('.message').textContent = 'Hurray, you won!';
+    document.querySelector('.message').style.fontWeight = 'bold';
+    document.querySelector('body').style.backgroundColor = '#60b347';
+    document.querySelector('.number').style.fontWeight = '700';
+    if (score > highScore) {
+      highScore = score;
+      document.querySelector('.highscore').textContent = highScore;
     } else {
-      result.textContent = `Distance: ${distance}m Bearing: ${bearing}`;
+      document.querySelector('.score').textContent = 'score';
     }
-  };
-  calculateDistance(p1E, p1N, p2E, p2N);
-  // calculateDistance(531970.793, 2790620.373, 532013.829, 2790645.827);
+    // when player loses
+  } else if (guess !== theRandomNumber) {
+    if (score > 8) {
+      document.querySelector('.message').textContent =
+        guess > theRandomNumber ? 'your guess high📈 ' : 'your guess is low📉 ';
+      score = score - 8;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent =
+        'Sorry, you lost the game';
+      document.querySelector('.number').textContent = theRandomNumber;
+      document.querySelector('.score').textContent = 0;
+      document.querySelector('body').style.backgroundColor = 'red';
+    }
+  }
+});
+
+// resets the code for new game
+document.querySelector('.again').addEventListener('click', function () {
+  score = 40;
+  theRandomNumber = Math.ceil(Math.random() * 40);
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.guess').value = '';
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
 });

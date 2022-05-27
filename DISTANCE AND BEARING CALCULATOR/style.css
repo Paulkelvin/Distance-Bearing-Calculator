@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: poppins;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 70.5%;
+}
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)),
+    url(distance-bearing-background\ Image.png);
+}
+
+header {
+  font-size: 0.8rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
+.app-function {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: black;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.calculator-box {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 3rem 2rem 3rem;
+  background-color: rgb(212, 182, 14);
+  box-shadow: 0px 2px 8px rgb(131, 123, 123);
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+.point-one {
+  display: flex;
+  flex-direction: column;
+}
+.point-two {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+input {
+  outline: none;
+  height: 2.5rem;
+  margin-bottom: 0.4rem;
+  border-color: transparent;
+}
+input::placeholder {
+  font-size: 1.1rem;
+  color: rgb(173, 166, 166);
+}
+div > p {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.button-result {
+  display: flex;
+  margin-top: 1.2rem;
+  flex-direction: column;
+}
+
+.calculate {
+  background-color: black;
+  border: solid 1px black;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  font-size: 1.2rem;
+  padding: 0.25em 0.7em;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.clear {
+  background-color: black;
+  border: solid 1px black;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  font-size: 1.2rem;
+  padding: 0.25em 0.7em;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  position: relative;
+}
+button:hover {
+  transform: translateY(-1px);
+  -webkit-transform: translateY(-1px);
+  -moz-transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+  -o-transform: translateY(-1px);
+}
+button:active {
+  transform: translateY(4px);
+  -webkit-transform: translateY(4px);
+  -moz-transform: translateY(4px);
+  -ms-transform: translateY(4px);
+  -o-transform: translateY(4px);
+}
